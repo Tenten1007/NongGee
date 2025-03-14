@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary! ❤️</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>วันครบรอบของเรา <span class="heart">❤️</span></h1>
+        <div class="date">15 มีนาคม</div>
+      </header>
+
+      <div class="countdown" id="countdown">เหลือเวลาอีก...</div>
+
+      <div class="photo-frame">
+        <img src="/assets/Our.JPG" alt="" width="100%" />
+      </div>
+
+      <h2>ความทรงจำดีๆ ของเรา</h2>
+
+      <div class="memory">
+        <div class="memory-title">วันแรกที่เราเจอกัน</div>
+        <p>
+          จำได้รึเปล่า ว่าเราเจอกันครั้งแรกที่ไหน อาจจะเป็นที่แม่นาจรก็ได้
+          ตอนนั้นที่ไปเดินขบวนงานอะไรซักอย่าง 💞
+          แต่วันที่ผมจำคุณได้คุณจริงๆคือตอนที่ผมกำลังทำความสะอาดห้องเรียนเพราะเป็นเวร
+          และท่าทางการกวาดผมมันเก้ๆกังๆ คุณก็เลยเอาไม้กวาดจากมือผมไปกวาดเอง55555
+          เหตุการณ์นี้คือครั้งแรกที่ทำให้จดจำคุณได้เลยล่ะ
+        </p>
+      </div>
+
+      <div class="memory">
+        <div class="memory-title">การเดทที่พิเศษที่สุด</div>
+        <p>ที่ม่อนแจ่ม รอบที่เราไปเดทกันเอง</p>
+        <video
+          controls
+          autoplay
+          loop
+          muted
+          src="/assets/Monjam.mov"
+          width="100%"
+        ></video>
+        <p>อันนี้เลยย 💖 น่ารักมาก ดูกี่ครั้งก็หลงรักก</p>
+      </div>
+
+      <div class="memory">
+        <div class="memory-title">สิ่งที่ฉันรักในตัวเธอ</div>
+        <p>ไม่บอกหรอก เขิน 😚😚</p>
+      </div>
+
+      <h2>ภาพความทรงจำของเรา</h2>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <video
+            controls
+            autoplay
+            loop
+            muted
+            width="100%"
+            src="/assets/v1.MOV"
+          ></video>
+        </div>
+        <div class="gallery-item">
+          <video
+            controls
+            autoplay
+            loop
+            muted
+            width="100%"
+            src="/assets/v2.MOV"
+          ></video>
+        </div>
+        <div class="gallery-item">
+          <video
+            controls
+            autoplay
+            loop
+            muted
+            width="100%"
+            src="/assets/v4.MOV"
+          ></video>
+        </div>
+        <div class="gallery-item">
+          <video
+            controls
+            autoplay
+            loop
+            muted
+            width="100%"
+            src="/assets/v5.MOV"
+          ></video>
+        </div>
+      </div>
+
+      <div class="message">
+        คุณคือของขวัญที่สวยงามที่สุดในชีวิตของผม ขอบคุณสำหรับช่วงเวลาดีๆ
+        ที่เราได้ใช้ร่วมกัน ผมจะรักคุณสมอ ❤️
+      </div>
+
+      <h1 class="title">วันครบรอบของเรา</h1>
+
+      <div class="card-container">
+        <div class="card" id="card" onclick="flipCard()">
+          <div class="card-face front">
+            <div class="floating-hearts" id="floating-hearts"></div>
+            <div class="front-content">
+              <div class="heart-icon">❤️</div>
+              <div class="anniversary-text">วันครบรอบ</div>
+              <div class="date-text">15 มีนาคม</div>
+              <div class="tap-text">แตะเพื่อดูเซอร์ไพรส์</div>
+            </div>
+          </div>
+          <div class="card-face back">
+            <video src="/assets/v3.MOV" autoplay loop muted></video>
+          </div>
+        </div>
+      </div>
+
+      <button id="surprise-btn">กดเพื่อรับเซอร์ไพรส์!</button>
+
+      <footer>ด้วยความรักทั้งหมดของผม ❤️</footer>
+    </div>
+
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <div id="music-control">♫</div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
