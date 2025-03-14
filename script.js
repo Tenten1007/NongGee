@@ -1,5 +1,5 @@
- // Countdown Timer
- function updateCountdown() {
+// Countdown Timer
+function updateCountdown() {
     const targetDate = new Date('2025-03-15T00:00:00');
     const currentDate = new Date();
     
@@ -51,47 +51,65 @@ document.getElementById('surprise-btn').addEventListener('click', function() {
         }, i * 100);
     }
 
-    flipCard()
+    flipCard();
     
     // Show alert message
     setTimeout(() => {
-        
         alert('รักเธอนะ! ❤️');
-        
     }, 1000);
 });
 
 // Background Music Control
 let audio = new Audio();
-    audio.src = "assets/yungkai.mp3";
-    audio.loop = true;
-    audio.volume = 0.1; // ปรับระดับเสียงให้เบาลง (ค่า 0.0 - 1.0)
-    
-    let audioPlaying = false;
+audio.src = "assets/yungkai.mp3";
+audio.loop = true;
+audio.volume = 0.2; // ปรับระดับเสียงให้ชัดเจน
+let audioPlaying = false;
 
-    // เล่นอัตโนมัติเมื่อเปิดเว็บ (อาจต้องให้ user กดที่หน้าเว็บก่อนในบางเบราว์เซอร์)
-    document.addEventListener("DOMContentLoaded", function() {
+// เพิ่มการ debug การโหลดไฟล์
+audio.onloadeddata = () => console.log("Audio file loaded successfully");
+audio.onerror = () => console.log("Error loading audio: " + audio.error.code);
+
+// ฟังก์ชันเล่นเพลง
+function playAudio() {
+    if (!audioPlaying) {
         audio.play().then(() => {
             audioPlaying = true;
             document.getElementById('music-control').innerHTML = '❚❚';
+            console.log("Audio started playing");
         }).catch(e => {
-            console.log("เบราว์เซอร์บล็อกการเล่นอัตโนมัติ, กรุณาคลิกที่หน้าเว็บก่อน");
+            console.log("เกิดข้อผิดพลาดในการเล่น: ", e);
         });
-    });
-
-    // ปุ่มควบคุมเพลง
-    document.getElementById('music-control').addEventListener('click', function() {
-        if (audioPlaying) {
-            audio.pause();
-            audioPlaying = false;
-            this.innerHTML = '♫';
-        } else {
-            audio.play();
-            audioPlaying = true;
-            this.innerHTML = '❚❚';
-        }
-    });
-
-    function flipCard() {
-        document.getElementById("card").classList.toggle("flipped");
     }
+}
+
+// เล่นเพลงเมื่อแตะหน้าจอครั้งแรก
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('music-control').innerHTML = '♫'; // แสดงว่าเพลงยังไม่เล่น
+    console.log("หน้าเว็บโหลดเสร็จแล้ว รอการแตะหน้าจอเพื่อเล่นเพลง");
+
+    // ฟังการคลิกหรือแตะที่ใดก็ได้ในหน้า
+    document.body.addEventListener('click', function startAudioOnInteraction() {
+        playAudio();
+        // ลบ event listener หลังจากเล่นครั้งแรกเพื่อไม่ให้เรียกซ้ำ
+        document.body.removeEventListener('click', startAudioOnInteraction);
+    }, { once: true }); // เรียกครั้งเดียว
+});
+
+// ปุ่มควบคุมเพลง
+document.getElementById('music-control').addEventListener('click', function(e) {
+    // ป้องกันการเรียก event click จาก body ซ้ำกับปุ่ม
+    e.stopPropagation();
+    if (audioPlaying) {
+        audio.pause();
+        audioPlaying = false;
+        this.innerHTML = '♫';
+    } else {
+        playAudio();
+    }
+});
+
+// Flip Card
+function flipCard() {
+    document.getElementById("card").classList.toggle("flipped");
+}

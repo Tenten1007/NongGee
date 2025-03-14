@@ -256,6 +256,7 @@ footer {
 
 .flipped {
   transform: rotateY(180deg);
+  
 }
 
 .card-face {
