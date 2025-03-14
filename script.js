@@ -63,7 +63,7 @@ document.getElementById('surprise-btn').addEventListener('click', function() {
 
 // Background Music Control
 let audio = new Audio();
-    audio.src = "yungkai.mp3";
+    audio.src = "/assets/yungkai.mp3";
     audio.loop = true;
     audio.volume = 0.1; // ปรับระดับเสียงให้เบาลง (ค่า 0.0 - 1.0)
     
