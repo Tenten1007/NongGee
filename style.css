@@ -284,6 +284,10 @@ footer {
   text-align: center;
 }
 
+.flipped .front {
+  visibility: hidden; /* หรือใช้ opacity: 0; */
+}
+
 .front-content {
   display: flex;
   flex-direction: column;
