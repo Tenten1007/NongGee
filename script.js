@@ -112,5 +112,5 @@ document.getElementById('music-control').addEventListener('click', function(e) {
 // Flip Card
 function flipCard() {
     document.getElementById("card").classList.toggle("flipped");
-    
+    console.log("Card flipped:", card.classList.contains("flipped"));
 }
